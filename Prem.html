@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>प्रेम — महादेव से एक संवाद 🔱</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#fff;
+
+    font-family:'Noto Sans Devanagari', sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #182d55 0%,
+            #080d1c 35%,
+            #02040a 75%
+        );
+}
+
+/* ================= BACKGROUND ================= */
+
+.space{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:-5;
+}
+
+.space::before{
+    content:"";
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    left:50%;
+    top:15%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(67,145,255,.22),
+            rgba(40,80,180,.08) 35%,
+            transparent 70%
+        );
+
+    filter:blur(20px);
+}
+
+/* Stars */
+
+.stars{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white, transparent),
+        radial-gradient(1px 1px at 30% 70%, white, transparent),
+        radial-gradient(2px 2px at 70% 15%, white, transparent),
+        radial-gradient(1px 1px at 85% 50%, white, transparent),
+        radial-gradient(2px 2px at 50% 90%, white, transparent),
+        radial-gradient(1px 1px at 20% 45%, white, transparent),
+        radial-gradient(1px 1px at 92% 85%, white, transparent),
+        radial-gradient(2px 2px at 65% 65%, white, transparent);
+
+    background-size:320px 320px;
+
+    animation:starsMove 30s linear infinite;
+
+    opacity:.65;
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-320px);
+    }
+}
+
+/* Moon */
+
+.moon{
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    right:8%;
+    top:8%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff 0%,
+            #c9dcff 45%,
+            #6d87b7 100%
+        );
+
+    box-shadow:
+        0 0 35px rgba(180,215,255,.55),
+        0 0 100px rgba(100,150,255,.25);
+
+    opacity:.85;
+}
+
+/* Mountains */
+
+.mountain{
+    position:absolute;
+
+    bottom:-5px;
+
+    width:100%;
+    height:27%;
+
+    background:
+        linear-gradient(
+            145deg,
+            transparent 48%,
+            #03050b 49%
+        ),
+        linear-gradient(
+            215deg,
+            transparent 48%,
+            #03050b 49%
+        );
+
+    background-size:220px 180px;
+
+    opacity:.9;
+}
+
+/* ================= MAIN ================= */
+
+.container{
+
+    width:min(1100px,92%);
+
+    margin:auto;
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:70px 0;
+}
+
+/* Om */
+
+.om{
+
+    font-size:46px;
+
+    margin-bottom:12px;
+
+    text-shadow:
+        0 0 15px #75b8ff,
+        0 0 40px rgba(80,150,255,.8);
+
+    animation:pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        transform:scale(1);
+        text-shadow:0 0 15px #75b8ff;
+    }
+
+    50%{
+        transform:scale(1.08);
+
+        text-shadow:
+            0 0 25px #75b8ff,
+            0 0 60px #407cff;
+    }
+}
+
+/* Subtitle */
+
+.subtitle{
+
+    font-size:14px;
+
+    letter-spacing:4px;
+
+    color:#9db9e8;
+
+    margin-bottom:35px;
+}
+
+/* ================= CARD ================= */
+
+.scene{
+
+    perspective:1600px;
+
+    width:min(850px,100%);
+}
+
+.card{
+
+    position:relative;
+
+    transform-style:preserve-3d;
+
+    padding:55px 65px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,50,90,.65),
+            rgba(5,10,24,.82)
+        );
+
+    border:1px solid rgba(150,200,255,.2);
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.7),
+        inset 0 1px rgba(255,255,255,.12),
+        0 0 80px rgba(50,110,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:
+        transform .15s ease-out,
+        box-shadow .3s ease;
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:1px;
+
+    border-radius:29px;
+
+    background:
+        linear-gradient(
+            120deg,
+            rgba(255,255,255,.08),
+            transparent 30%,
+            transparent 70%,
+            rgba(100,160,255,.05)
+        );
+
+    pointer-events:none;
+}
+
+/* Trishul */
+
+.trishul{
+
+    position:absolute;
+
+    right:-55px;
+    top:-55px;
+
+    font-size:90px;
+
+    color:#9dccff;
+
+    opacity:.12;
+
+    transform:
+        translateZ(40px)
+        rotate(8deg);
+
+    filter:
+        drop-shadow(0 0 20px #5da2ff);
+}
+
+/* ================= QUESTION ================= */
+
+.question{
+
+    position:relative;
+
+    text-align:center;
+
+    font-family:'Playfair Display',serif;
+
+    font-size:
+        clamp(25px,4vw,40px);
+
+    line-height:1.4;
+
+    margin-bottom:42px;
+
+    color:#f2f7ff;
+
+    transform:translateZ(45px);
+}
+
+.question span{
+    color:#72b5ff;
+}
+
+/* ================= SHAYARI ================= */
+
+.poem{
+
+    position:relative;
+
+    text-align:center;
+
+    transform:translateZ(30px);
+}
+
+.line{
+
+    opacity:0;
+
+    transform:translateY(25px);
+
+    animation:reveal 1s forwards;
+
+    font-size:
+        clamp(17px,2.4vw,23px);
+
+    line-height:2;
+
+    color:#dbe7fa;
+
+    text-shadow:
+        0 2px 15px rgba(0,0,0,.6);
+}
+
+/* Animation delays */
+
+.line:nth-child(1){
+    animation-delay:.8s;
+}
+
+.line:nth-child(2){
+    animation-delay:1.5s;
+}
+
+.line:nth-child(3){
+    animation-delay:2.2s;
+}
+
+.line:nth-child(4){
+    animation-delay:2.9s;
+}
+
+.line:nth-child(5){
+    animation-delay:3.6s;
+}
+
+.line:nth-child(6){
+    animation-delay:4.3s;
+}
+
+.line:nth-child(7){
+    animation-delay:5s;
+}
+
+@keyframes reveal{
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Highlight */
+
+.highlight{
+
+    color:#82bdff;
+
+    font-weight:600;
+}
+
+/* Final */
+
+.final{
+
+    margin-top:30px;
+
+    font-size:
+        clamp(21px,3vw,30px);
+
+    font-weight:600;
+
+    color:#fff;
+
+    text-shadow:
+        0 0 15px rgba(100,170,255,.7),
+        0 0 40px rgba(70,120,255,.3);
+}
+
+/* Divider */
+
+.divider{
+
+    width:100px;
+
+    height:1px;
+
+    margin:30px auto 25px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #76b8ff,
+            transparent
+        );
+}
+
+/* ================= FOOTER ================= */
+
+.footer{
+
+    margin-top:45px;
+
+    color:#7185a8;
+
+    font-size:13px;
+
+    letter-spacing:2px;
+
+    text-align:center;
+}
+
+.footer strong{
+    color:#9fcaff;
+}
+
+/* ================= MUSIC BUTTON ================= */
+
+.music-control{
+
+    position:fixed;
+
+    right:20px;
+    bottom:20px;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(150,200,255,.35);
+
+    background:
+        rgba(10,20,40,.75);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,.5),
+        0 0 20px rgba(80,140,255,.15);
+
+    transition:.3s;
+
+    z-index:20;
+}
+
+.music-control:hover{
+
+    transform:scale(1.08);
+
+    background:
+        rgba(30,60,100,.85);
+}
+
+/* ================= PARTICLES ================= */
+
+.particle{
+
+    position:fixed;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#9dceff;
+
+    box-shadow:
+        0 0 12px #6db4ff;
+
+    pointer-events:none;
+
+    animation:
+        float 8s linear infinite;
+
+    opacity:0;
+}
+
+@keyframes float{
+
+    0%{
+        transform:
+            translateY(100vh)
+            scale(.5);
+
+        opacity:0;
+    }
+
+    20%{
+        opacity:.8;
+    }
+
+    80%{
+        opacity:.6;
+    }
+
+    100%{
+        transform:
+            translateY(-10vh)
+            scale(1.3);
+
+        opacity:0;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+    .container{
+        padding:45px 0;
+    }
+
+    .moon{
+
+        width:90px;
+        height:90px;
+
+        right:5%;
+        top:5%;
+    }
+
+    .om{
+        font-size:38px;
+    }
+
+    .subtitle{
+
+        font-size:10px;
+
+        letter-spacing:2px;
+
+        margin-bottom:25px;
+    }
+
+    .card{
+
+        padding:38px 22px;
+
+        border-radius:22px;
+    }
+
+    .card::before{
+        border-radius:21px;
+    }
+
+    .trishul{
+
+        right:-20px;
+        top:-35px;
+
+        font-size:60px;
+    }
+
+    .question{
+        margin-bottom:30px;
+    }
+
+    .line{
+
+        line-height:1.9;
+
+        font-size:16px;
+    }
+
+    .final{
+
+        line-height:1.7;
+
+        font-size:19px;
+    }
+
+    .music-control{
+
+        right:15px;
+        bottom:15px;
+
+        width:48px;
+        height:48px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= BACKGROUND ================= -->
+
+<div class="space">
+
+    <div class="stars"></div>
+
+    <div class="moon"></div>
+
+    <div class="mountain"></div>
+
+</div>
+
+<!-- Particles -->
+
+<div id="particles"></div>
+
+
+<!-- ================= MAIN ================= -->
+
+<main class="container">
+
+    <div class="om">
+        ॐ
+    </div>
+
+    <div class="subtitle">
+        महादेव से एक संवाद
+    </div>
+
+
+    <div class="scene">
+
+        <section class="card" id="card">
+
+            <div class="trishul">
+                🔱
+            </div>
+
+
+            <!-- Question -->
+
+            <h1 class="question">
+
+                महादेव ने मुस्कुराकर मुझसे पूछा—<br>
+
+                <span>
+                    “भक्त, बता… इस संसार में सबसे ख़ूबसूरत चीज़ क्या है?”
+                </span>
+
+            </h1>
+
+
+            <div class="divider"></div>
+
+
+            <!-- Shayari -->
+
+            <div class="poem">
+
+                <p class="line">
+                    मैंने भी मुस्कुराकर कहा—
+                </p>
+
+
+                <p class="line">
+                    “प्रेम में जलती हुई शक्ति ख़ूबसूरत है,<br>
+
+                    प्रेम के लिए वन-वन भटकती सीता ख़ूबसूरत है।<br>
+
+                    प्रेम में विरह सहती, आँसुओं में भी मुस्कुराती
+                    राधा ख़ूबसूरत है।
+                </p>
+
+
+                <p class="line">
+
+                    क्योंकि प्रेम में पागल हुई हर स्त्री ख़ूबसूरत है…<br>
+
+                    और उस प्रेम में पागल,
+                    <span class="highlight">
+                        मेरी रुक्मिणी—
+                    </span><br>
+
+                    
+
+                </p>
+
+
+                
+
+                </p>
+
+
+                
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div class="footer">
+
+        VARUN<br>
+
+        <strong>
+        ॐ नमः शिवाय 🔱
+        </strong>
+
+    </div>
+
+</main>
+
+
+<!-- ================= MUSIC ================= -->
+
+<audio id="music" loop preload="auto">
+
+    <source src="song.mp3" type="audio/mpeg">
+
+</audio>
+
+
+<button
+    class="music-control"
+    id="musicButton"
+    onclick="toggleMusic()"
+    aria-label="Music">
+
+    🎵
+
+</button>
+
+
+<script>
+
+/* =================================================
+   3D CARD
+================================================= */
+
+const card =
+    document.getElementById("card");
+
+document.addEventListener("mousemove", (e) => {
+
+    if(window.innerWidth < 700)
+        return;
+
+    const x =
+        (window.innerWidth / 2 - e.clientX) / 35;
+
+    const y =
+        (window.innerHeight / 2 - e.clientY) / 35;
+
+    card.style.transform =
+        `rotateY(${x}deg) rotateX(${y}deg)`;
+
+});
+
+
+document.addEventListener("mouseleave", () => {
+
+    card.style.transform =
+        "rotateY(0deg) rotateX(0deg)";
+
+});
+
+
+/* =================================================
+   PARTICLES
+================================================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+
+for(let i = 0; i < 45; i++){
+
+    const p =
+        document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left =
+        Math.random() * 100 + "%";
+
+    p.style.animationDelay =
+        Math.random() * 8 + "s";
+
+    p.style.animationDuration =
+        5 + Math.random() * 7 + "s";
+
+    const size =
+        1 + Math.random() * 3;
+
+    p.style.width =
+        size + "px";
+
+    p.style.height =
+        size + "px";
+
+    particleContainer.appendChild(p);
+}
+
+
+/* =================================================
+   MUSIC
+================================================= */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+/*
+   Browser autoplay attempt.
+
+   Important:
+   Most mobile browsers block
+   unmuted autoplay.
+*/
+
+window.addEventListener("load", () => {
+
+    music.volume = 0.45;
+
+    music.play()
+        .then(() => {
+
+            musicButton.innerHTML = "🔊";
+
+        })
+        .catch(() => {
+
+            /*
+               Browser blocked autoplay.
+               First user interaction will start music.
+            */
+
+            musicButton.innerHTML = "🎵";
+
+        });
+
+});
+
+
+/*
+   If autoplay was blocked,
+   start music on first interaction.
+*/
+
+function startMusicAfterInteraction(){
+
+    if(music.paused){
+
+        music.volume = 0.45;
+
+        music.play()
+            .then(() => {
+
+                musicButton.innerHTML = "🔊";
+
+            })
+            .catch(() => {});
+
+    }
+
+}
+
+
+document.addEventListener(
+    "click",
+    startMusicAfterInteraction,
+    {once:true}
+);
+
+document.addEventListener(
+    "touchstart",
+    startMusicAfterInteraction,
+    {once:true}
+);
+
+
+/* Music button */
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.innerHTML = "🔊";
+
+    }else{
+
+        music.pause();
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
+}
+
+
+/* =================================================
+   MOBILE TOUCH PARALLAX
+================================================= */
+
+document.addEventListener("touchmove", (e) => {
+
+    if(!e.touches[0])
+        return;
+
+    const touch =
+        e.touches[0];
+
+    const x =
+        (window.innerWidth / 2 - touch.clientX) / 70;
+
+    const y =
+        (window.innerHeight / 2 - touch.clientY) / 70;
+
+    card.style.transform =
+        `rotateY(${x}deg) rotateX(${y}deg)`;
+
+});
+
+
+document.addEventListener("touchend", () => {
+
+    card.style.transform =
+        "rotateY(0deg) rotateX(0deg)";
+
+});
+
+</script>
+
+</body>
+</html>
